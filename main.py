@@ -45,19 +45,19 @@ app.include_router(jira_info.router)
 #app.include_router(pro_module.router)
 
 #统计
-app.include_router(jira_summary.router)     #jira统计
-app.include_router(qa_mon_report.router)    #质量月报
-app.include_router(delay.router)            #延期提测
-app.include_router(middle_report.router)    #中台月报
+app.include_router(jira_summary.router)  
+app.include_router(qa_mon_report.router)   
+app.include_router(delay.router)       
+app.include_router(middle_report.router)    
 app.include_router(qa_mon.router)
-app.include_router(middle_mon_report.router)    #中台月报
+app.include_router(middle_mon_report.router)  
 
 
 #基础数据
 app.include_router(sys_base.router)     #系统基础数据
 app.include_router(test_manage_base.router)     #测试工具基础数据
 app.include_router(api_base.router)     #接口基础数据
-app.include_router(dingding.router)     #钉钉基础数据
+app.include_router(dingding.router)   
 
 #测试管理
 app.include_router(version.router)    #版本需求
