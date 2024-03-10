@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><project>
+  <actions/>
+  <description>default description</description>
+  <keepdependencies>false</keepdependencies>
+  <properties>
+    <hudson.plugins.jira.jiraprojectproperty plugin="jira@3.6"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canroam>true</canroam>
+  <disabled>true</disabled>
+  <blockbuildwhendownstreambuilding>false</blockbuildwhendownstreambuilding>
+  <blockbuildwhenupstreambuilding>false</blockbuildwhenupstreambuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H/5 * * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentbuild>false</concurrentbuild>
+  <builders>
+    <hudson.tasks.shell>
+      <command>result=`curl -i "http://tx4-cj-test-qa01.makedie.xyz:9004/api/jenkins/runbstask?job_id={{job_id}}"`
+
+if [[ $result  =~ "200" ]]
+then
+	echo $result &amp;&amp; exit 0
+else
+	echo $result  &amp;&amp; exit 1
+fi</command>
+      <configuredlocalrules/>
+    </hudson.tasks.shell>
+  </builders>
+  <publishers/>
+  <buildwrappers/>
+</project>
